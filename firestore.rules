@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Canonical clustered hazards (read by everyone, written only by backend) ──
+    match /potholes/{clusterId} {
+      // Public read so route analysis works even before sign-in is established
+      allow read: if true;
+
+      // Nobody from the client SDK can write here directly.
+      // ONLY the Cloud Function service account writes here.
+      allow write: if false;
+    }
+
+    // ── Raw rider reports (append-only from authenticated app) ────────────────
+    match /pothole_reports/{reportId} {
+      // Any authenticated user can read their own raw reports (for stats)
+      allow read: if request.auth != null
+                  && request.auth.uid == resource.data.reporterUid;
+
+      // Authenticated users may create new raw reports
+      allow create: if request.auth != null
+                    && request.auth.uid == request.resource.data.reporterUid
+                    && request.resource.data.ingestStatus == "pending"
+                    && request.resource.data.rawLat is float
+                    && request.resource.data.rawLng is float;
+
+      // Only Cloud Function may update (to mark processed/failed + set clusterId)
+      // Client-side updates are disallowed
+      allow update: if false;
+
+      // Reports are never deleted by clients
+      allow delete: if false;
+    }
+  }
+}

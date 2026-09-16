@@ -1,0 +1,54 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+google-services.json
+*.jks
+secret.xml
+
+# ── Secrets safety net ──────────────────────────────
+**/serviceAccountKey.json
+app/src/main/assets/mappls.json
+
+# ── Scripts (one-time upload tools, no longer needed)
+scripts/
+
+# ── Node.js ─────────────────────────────────────────
+**/node_modules/
+
+# ── Local caches & editor state ─────────────────────
+.gradle-user-home/
+.android/
+.kotlin/
+.cursor/
+
+# ── Environment Variables & Logs ──────────────
+*.env
+.env
+.env.*.local
+*-debug.log
+
+# ── General Project Documentation & Models ──
+Markdowns/
+docs/
+ai models/
+env & sdk/
+
+# ── AI Model Binaries & Datasets ──
+*.onnx
+*.onnx.data
+*.ptl
+*.pt
+app/src/main/assets/dataset_1_*.json
+

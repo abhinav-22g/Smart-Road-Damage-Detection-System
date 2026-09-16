@@ -1,0 +1,37 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "potholes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "isActive", "order": "ASCENDING" },
+        { "fieldPath": "lat",      "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "potholes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "cellKey",  "order": "ASCENDING" },
+        { "fieldPath": "isActive", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "pothole_reports",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "reporterUid",  "order": "ASCENDING" },
+        { "fieldPath": "createdAt",    "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "pothole_reports",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "reporterUid",  "order": "ASCENDING" },
+        { "fieldPath": "ingestStatus", "order": "ASCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
