@@ -50,9 +50,3 @@ This project is currently in a **serious controlled-testing stage**. It is an ar
 * **Experimental Features:** Lane-side detection logic and camera-assisted vision fusion are present in the data models but are considered experimental and pending further field calibration.
 * **Firmware Contract:** The Android app expects very specific CSV packet formats from the ESP32 (e.g., exactly 20 fields for `C` packets). Any changes to the ESP32 firmware output format will require corresponding updates to `CPacketParser.kt` and `IPacketParser.kt`.
 
-## 📚 Further Reading
-The `Markdowns/` directory contains extensive documentation about the project internals:
-- `PROJECT_GUIDE.md`: File-by-file Kotlin inventory and deep dive into the ML and BLE pipelines.
-- `SMARTROAD_FEATURE_STATUS_AND_PRESENTATION.md`: Product presentation and executive status.
-- `SMARTROAD_TECHNICAL_SPECIFICATION.md`: Low-level system requirements.
-- `ARCHITECTURE_AND_DIAGRAMS.md`: System flowcharts.
